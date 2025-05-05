@@ -43,3 +43,17 @@ document.addEventListener("DOMContentLoaded", function () {
     listingsContainer.appendChild(div);
   }
 });
+function renderListing({ title, desc, price, contact, imageUrl }) {
+  const div = document.createElement("div");
+  div.innerHTML = `
+    <h3>${title}</h3>
+    <p>${desc}</p>
+    <p><strong>Price:</strong> $${price}</p>
+    <p><strong>Contact:</strong> ${contact}</p>
+    ${imageUrl ? `<img src="${imageUrl}" alt="${title}" style="max-width: 100%; height: auto;">` : ""}
+    <hr>
+  `;
+  listingsContainer.appendChild(div);
+}
+
+
