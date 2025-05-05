@@ -1,0 +1,1 @@
+console.log("NZRealEstate.App v2 loaded");
