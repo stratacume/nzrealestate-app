@@ -21,7 +21,70 @@
             <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
         </ul>
     </section>
+<h2>List Your Property</h2>
+<form id="property-form">
+  <label for="title">Property Title:</label><br>
+  <input type="text" id="title" name="title" required><br><br>
 
+  <label for="description">Description:</label><br>
+  <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+  <label for="price">Price (NZD):</label><br>
+  <input type="number" id="price" name="price" required><br><br>
+
+  <label for="contact">Contact Info:</label><br>
+  <input type="text" id="contact" name="contact" required><br><br>
+
+  <label for="image">Upload Image:</label><br>
+  <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+  <input type="submit" value="Submit Listing">
+</form>
+
+<h3>Submitted Listings</h3>
+<div id="listings"></div>
+
+<script>
+document.getElementById('property-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const title = document.getElementById('title').value;
+  const description = document.getElementById('description').value;
+  const price = document.getElementById('price').value;
+  const contact = document.getElementById('contact').value;
+  const imageInput = document.getElementById('image');
+  const listingsDiv = document.getElementById('listings');
+
+  let reader = new FileReader();
+  reader.onload = function(event) {
+    const newListing = document.createElement('div');
+    newListing.innerHTML = `
+      <h4>${title}</h4>
+      <p>${description}</p>
+      <p><strong>Price:</strong> $${price}</p>
+      <p><strong>Contact:</strong> ${contact}</p>
+      <img src="${event.target.result}" alt="${title}" width="300"><hr>
+    `;
+    listingsDiv.prepend(newListing);
+  };
+
+  if (imageInput.files[0]) {
+    reader.readAsDataURL(imageInput.files[0]);
+  } else {
+    const newListing = document.createElement('div');
+    newListing.innerHTML = `
+      <h4>${title}</h4>
+      <p>${description}</p>
+      <p><strong>Price:</strong> $${price}</p>
+      <p><strong>Contact:</strong> ${contact}</p>
+      <hr>
+    `;
+    listingsDiv.prepend(newListing);
+  }
+
+  e.target.reset();
+});
+</script>
     <footer>
         <p>&copy; 2025 NZRealEstate.App</p>
     </footer>
