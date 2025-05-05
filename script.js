@@ -30,18 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  function renderListing({ title, desc, price, contact, imageUrl }) {
-    const div = document.createElement("div");
-    div.innerHTML = `
-      <h3>${title}</h3>
-      <p>${desc}</p>
-      <p><strong>Price:</strong> $${price}</p>
-      <p><strong>Contact:</strong> ${contact}</p>
-      ${imageUrl ? `<img src="${imageUrl}" width="200" />` : ""}
-      <hr>
-    `;
-    listingsContainer.appendChild(div);
-  }
+  
 });
 function renderListing({ title, desc, price, contact, imageUrl }) {
   const div = document.createElement("div");
