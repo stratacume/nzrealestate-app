@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NZ Real Estate</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NZ Real Estate</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>NZ Real Estate</h1>
-    <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
-  </header>
+    <header>
+        <h1>NZ Real Estate</h1>
+        <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
+    </header>
 
-  <section id="documents">
-    <h2>DOCUMENTS</h2>
-    <p>Select clauses to include in the agreement. You can edit the text before generating the contract.</p>
-    <div class="clauses">
-      <label><input type="checkbox" value="Finance" class="clause" onclick="toggleClause(this)"> Finance Clause</label>
-      <textarea id="Finance" class="clause-text" style="display:none;">This agreement is conditional on the buyer obtaining finance on terms suitable to the buyer within 10 working days.</textarea>
+    <section>
+        <h2>DOCUMENTS</h2>
+        <p>Select clauses to include in the agreement. You can edit the text before generating the contract.</p>
+        <form id="clausesForm">
+            <label><input type="checkbox" class="clause" value="Finance Clause" onchange="toggleClause(this)"> Finance Clause</label><br>
+            <textarea id="Finance Clause" style="display:none">This agreement is subject to the purchaser obtaining finance on satisfactory terms.</textarea>
 
-      <label><input type="checkbox" value="Building" class="clause" onclick="toggleClause(this)"> Building Inspection Clause</label>
-      <textarea id="Building" class="clause-text" style="display:none;">This agreement is conditional on the buyer obtaining a satisfactory building inspection report.</textarea>
+            <label><input type="checkbox" class="clause" value="Building Inspection Clause" onchange="toggleClause(this)"> Building Inspection Clause</label><br>
+            <textarea id="Building Inspection Clause" style="display:none">This agreement is conditional on a satisfactory building inspection report.</textarea>
 
-      <label><input type="checkbox" value="LIM" class="clause" onclick="toggleClause(this)"> LIM Clause</label>
-      <textarea id="LIM" class="clause-text" style="display:none;">This agreement is conditional on the buyer obtaining and approving a LIM report.</textarea>
+            <label><input type="checkbox" class="clause" value="LIM Clause" onchange="toggleClause(this)"> LIM Clause</label><br>
+            <textarea id="LIM Clause" style="display:none">Subject to the purchaser approving a LIM report obtained from the local council.</textarea>
 
-      <label><input type="checkbox" value="OIO" class="clause" onclick="toggleClause(this)"> OIO Consent Clause</label>
-      <textarea id="OIO" class="clause-text" style="display:none;">This agreement is conditional on the buyer obtaining OIO consent if required.</textarea>
+            <label><input type="checkbox" class="clause" value="OIO Consent Clause" onchange="toggleClause(this)"> OIO Consent Clause</label><br>
+            <textarea id="OIO Consent Clause" style="display:none">This agreement is conditional on obtaining consent under the Overseas Investment Act.</textarea>
 
-      <label><input type="checkbox" value="DueDiligence" class="clause" onclick="toggleClause(this)"> Due Diligence Clause</label>
-      <textarea id="DueDiligence" class="clause-text" style="display:none;">This agreement is conditional on the buyer completing due diligence to their satisfaction.</textarea>
+            <label><input type="checkbox" class="clause" value="Due Diligence Clause" onchange="toggleClause(this)"> Due Diligence Clause</label><br>
+            <textarea id="Due Diligence Clause" style="display:none">The purchaser shall have a period to conduct due diligence investigations and cancel if not satisfied.</textarea>
 
-      <label><input type="checkbox" value="Solicitor" class="clause" onclick="toggleClause(this)"> Solicitor’s Approval Clause</label>
-      <textarea id="Solicitor" class="clause-text" style="display:none;">This agreement is conditional on the buyer's solicitor's approval of the contract terms.</textarea>
+            <label><input type="checkbox" class="clause" value="Solicitor’s Approval Clause" onchange="toggleClause(this)"> Solicitor’s Approval Clause</label><br>
+            <textarea id="Solicitor’s Approval Clause" style="display:none">This agreement is conditional upon the purchaser’s solicitor’s approval of the terms.</textarea>
 
-      <label><input type="checkbox" value="CashOut" class="clause" onclick="toggleClause(this)"> Cash Out Clause</label>
-      <textarea id="CashOut" class="clause-text" style="display:none;">The seller may cancel this agreement if another unconditional offer is accepted.</textarea>
+            <label><input type="checkbox" class="clause" value="Cash Out Clause" onchange="toggleClause(this)"> Cash Out Clause</label><br>
+            <textarea id="Cash Out Clause" style="display:none">Vendor may cancel this agreement if a better offer is accepted and not matched by the purchaser.</textarea>
 
-      <label><input type="checkbox" value="SubjectToSale" class="clause" onclick="toggleClause(this)"> Subject to Sale of Another Property</label>
-      <textarea id="SubjectToSale" class="clause-text" style="display:none;">This agreement is conditional on the sale of the buyer's current property.</textarea>
-    </div>
-    <button onclick="generateAgreement()">Generate Agreement</button>
-    <pre id="output"></pre>
-  </section>
+            <label><input type="checkbox" class="clause" value="Subject to Sale of Another Property" onchange="toggleClause(this)"> Subject to Sale of Another Property</label><br>
+            <textarea id="Subject to Sale of Another Property" style="display:none">The purchaser must sell their current property before this agreement becomes unconditional.</textarea>
 
-  <script src="script.js"></script>
+            <button type="button" onclick="generateAgreement()">Generate Agreement</button>
+        </form>
+        <pre id="output"></pre>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>
