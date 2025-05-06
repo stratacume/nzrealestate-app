@@ -1,118 +1,146 @@
+/* General */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-header {
-  position: relative;
-  text-align: center;
+h1, h2 {
+  margin: 0;
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+/* Hero Banner */
+.hero {
+  background: url('nz_home.jpg') center/cover no-repeat;
   color: white;
-  background: rgba(0, 0, 0, 0.4);
   padding: 80px 20px;
-  background-image: url('nz_home.jpg');
-  background-size: cover;
-  background-position: center;
+  text-align: center;
+  position: relative;
 }
 
-header h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 0;
 }
 
-header p {
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.hero p {
   font-size: 1.2em;
 }
 
+/* Main Content */
 main {
+  padding: 20px;
   max-width: 800px;
   margin: auto;
+}
+
+/* Card Section Boxes */
+.card {
+  background: #fff;
   padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 24px;
 }
 
-h2 {
-  font-size: 1.6em;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-form input,
-form textarea,
-form button {
-  display: block;
+/* Form */
+form input, form textarea, form select {
   width: 100%;
-  margin-bottom: 15px;
-  padding: 12px;
-  font-size: 1em;
-  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 16px;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
 }
 
 form button {
-  background-color: #0074d9;
+  background-color: #0074cc;
   color: white;
+  padding: 12px;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  width: 100%;
+  font-size: 1em;
 }
 
 form button:hover {
   background-color: #005fa3;
 }
 
+/* Listings */
 .listing-card {
   background: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-left: 5px solid #0074d9;
-}
-
-.listing-card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.listing-card p {
-  margin: 5px 0;
-}
-
-.listing-card img {
-  max-width: 100%;
-  margin-top: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 4px solid #0074cc;
   border-radius: 8px;
 }
 
+.listing-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+/* Button group */
 .button-group {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .button-group button {
-  background-color: #ccc;
-  border: none;
-  padding: 8px 12px;
   margin-right: 10px;
-  border-radius: 5px;
+  background-color: #eee;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .button-group button:hover {
-  background-color: #aaa;
+  background-color: #ccc;
 }
+
+/* Location tag */
 .location-tag {
   display: flex;
   align-items: center;
-  font-size: 0.9em;
-  margin-top: 5px;
+  gap: 6px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-.location-tag .icon {
-  width: 16px;
+.location-tag img {
   height: 16px;
-  margin-right: 6px;
+}
+
+/* Clause Display */
+.clause-display {
+  background-color: #f0f8ff;
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 8px;
+  font-style: italic;
+  border-left: 4px solid #0074cc;
 }
