@@ -1,79 +1,58 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("listingForm");
-  const listingsContainer = document.getElementById("listings");
-  let listings = JSON.parse(localStorage.getItem("nzListings")) || [];
+document.getElementById('listingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-  listings.forEach((listing, index) => renderListing(listing, index));
+  const title = document.querySelector('[name="title"]').value;
+  const description = document.querySelector('[name="description"]').value;
+  const price = document.querySelector('[name="price"]').value;
+  const contact = document.querySelector('[name="contact"]').value;
+  const imageInput = document.querySelector('[name="image"]');
+  const listingsDiv = document.getElementById('listings');
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  const reader = new FileReader();
 
-    const title = form.title.value;
-    const desc = form.description.value;
-    const price = form.price.value;
-    const contact = form.contact.value;
-    const imageFile = form.image.files[0];
-
-    const reader = new FileReader();
-    reader.onloadend = function () {
-      const imageUrl = reader.result;
-
-      const listing = { title, desc, price, contact, imageUrl };
-      listings.push(listing);
-      localStorage.setItem("nzListings", JSON.stringify(listings));
-      refreshListings();
-      form.reset();
-    };
-
-    if (imageFile) {
-      reader.readAsDataURL(imageFile);
-    } else {
-      const listing = { title, desc, price, contact, imageUrl: "" };
-      listings.push(listing);
-      localStorage.setItem("nzListings", JSON.stringify(listings));
-      refreshListings();
-      form.reset();
-    }
-  });
-
-  function renderListing({ title, desc, price, contact, imageUrl }, index) {
-    const div = document.createElement("div");
-
-    div.innerHTML = `
+  reader.onload = function(event) {
+    const newListing = document.createElement('div');
+    newListing.className = 'listing-card';
+    newListing.innerHTML = `
       <h3>${title}</h3>
-      <p>${desc}</p>
+      <p>${description}</p>
       <p><strong>Price:</strong> $${price}</p>
-      <p><strong>Contact:</strong> ${contact}</p>
-      ${imageUrl ? `<img src="${imageUrl}" alt="${title}" width="100%">` : ""}
-      <br>
-      <button onclick="editListing(${index})">Edit</button>
-      <button onclick="deleteListing(${index})">Delete</button>
-      <hr>
+      <p><strong>Contact:</strong> <a href="tel:${contact}">${contact}</a></p>
+      <img src="${event.target.result}" alt="Property Image" style="max-width:100%; border-radius: 8px;">
+      <div class="button-group">
+        <button onclick="editListing(this)">Edit</button>
+        <button onclick="deleteListing(this)">Delete</button>
+      </div>
     `;
-
-    listingsContainer.appendChild(div);
-  }
-
-  window.deleteListing = function (index) {
-    listings.splice(index, 1);
-    localStorage.setItem("nzListings", JSON.stringify(listings));
-    refreshListings();
+    listingsDiv.prepend(newListing);
   };
 
-  window.editListing = function (index) {
-    const listing = listings[index];
-    document.getElementById("title").value = listing.title;
-    document.getElementById("description").value = listing.desc;
-    document.getElementById("price").value = listing.price;
-    document.getElementById("contact").value = listing.contact;
-
-    listings.splice(index, 1); // delete old version
-    refreshListings();
-  };
-
-  function refreshListings() {
-    listingsContainer.innerHTML = "";
-    listings.forEach((listing, index) => renderListing(listing, index));
+  if (imageInput.files[0]) {
+    reader.readAsDataURL(imageInput.files[0]);
+  } else {
+    const newListing = document.createElement('div');
+    newListing.className = 'listing-card';
+    newListing.innerHTML = `
+      <h3>${title}</h3>
+      <p>${description}</p>
+      <p><strong>Price:</strong> $${price}</p>
+      <p><strong>Contact:</strong> <a href="tel:${contact}">${contact}</a></p>
+      <div class="button-group">
+        <button onclick="editListing(this)">Edit</button>
+        <button onclick="deleteListing(this)">Delete</button>
+      </div>
+    `;
+    listingsDiv.prepend(newListing);
   }
+
+  this.reset();
 });
+
+function deleteListing(button) {
+  button.closest('.listing-card').remove();
+}
+
+function editListing(button) {
+  alert('Edit functionality is coming soon!');
+}
 
