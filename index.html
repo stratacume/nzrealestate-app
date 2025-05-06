@@ -2,29 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NZ Real Estate</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <header class="hero">
-    <div class="hero-content">
-      <h1>NZ Real Estate</h1>
-      <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
-    </div>
+  <header>
+    <h1>NZ Real Estate</h1>
+    <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
   </header>
 
   <main>
-    <section class="card">
+    <section>
       <h2>Documents</h2>
-      <ul>
-        <li><a href="NZ_Sale_Purchase_Contract.pdf" target="_blank">Sale & Purchase Agreement (PDF)</a></li>
-        <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
-      </ul>
+      <select id="documentSelect">
+        <option disabled selected>-- Select Document or Clause --</option>
+        <option value="sale">Sale & Purchase Agreement (PDF)</option>
+        <option value="due_diligence">Due Diligence Clause</option>
+        <option value="finance">Finance Clause</option>
+        <option value="building">Building Inspection Clause</option>
+        <option value="cash_out">Cash Out Clause</option>
+        <option value="solicitor">Solicitor’s Approval Clause</option>
+      </select>
+      <div id="clauseDisplay"></div>
     </section>
 
-    <section class="card">
+    <section>
       <h2>List Your Property</h2>
       <form id="listingForm">
         <input type="text" name="title" placeholder="Property Title" required />
@@ -36,23 +39,9 @@
       </form>
     </section>
 
-    <section class="card">
+    <section>
       <h2>Submitted Listings</h2>
       <div id="listings"></div>
-    </section>
-
-    <section class="card">
-      <h2>Contract Clauses</h2>
-      <label for="clauseSelector">Select a Clause:</label>
-      <select id="clauseSelector" onchange="displayClause()">
-        <option value="">-- Choose a Clause --</option>
-        <option value="dueDiligence">Due Diligence Clause</option>
-        <option value="finance">Finance Clause</option>
-        <option value="buildingInspection">Building Inspection Clause</option>
-        <option value="cashOut">Cash Out Clause</option>
-        <option value="solicitorApproval">Solicitor’s Approval Clause</option>
-      </select>
-      <div id="clauseText" class="clause-display"></div>
     </section>
   </main>
 
