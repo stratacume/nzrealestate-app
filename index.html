@@ -8,43 +8,42 @@
 </head>
 <body>
   <header>
-    <h1>NZ Real Estate</h1>
-    <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
+    <img src="nz_home.jpg" alt="Banner" class="banner" />
+    <div class="header-text">
+      <h1>NZ Real Estate</h1>
+      <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
+    </div>
+    <div class="document-dropdown">
+      <label for="documentSelect">Documents:</label>
+      <select id="documentSelect">
+        <option value="">-- Select Document or Clause --</option>
+        <option value="NZ_Sale_Purchase_Contract.pdf">Sale & Purchase Agreement (PDF)</option>
+        <option value="Due Diligence Clause">Due Diligence Clause</option>
+        <option value="Finance Clause">Finance Clause</option>
+        <option value="Building Inspection Clause">Building Inspection Clause</option>
+        <option value="Cash Out Clause">Cash Out Clause</option>
+        <option value="Solicitor’s Approval Clause">Solicitor’s Approval Clause</option>
+      </select>
+      <div id="clauseText" class="clause-display"></div>
+    </div>
   </header>
-
   <main>
     <section>
-      <h2>Documents</h2>
-      <select id="documentSelect">
-        <option disabled selected>-- Select Document or Clause --</option>
-        <option value="sale">Sale & Purchase Agreement (PDF)</option>
-        <option value="due_diligence">Due Diligence Clause</option>
-        <option value="finance">Finance Clause</option>
-        <option value="building">Building Inspection Clause</option>
-        <option value="cash_out">Cash Out Clause</option>
-        <option value="solicitor">Solicitor’s Approval Clause</option>
-      </select>
-      <div id="clauseDisplay"></div>
-    </section>
-
-    <section>
       <h2>List Your Property</h2>
-      <form id="listingForm">
-        <input type="text" name="title" placeholder="Property Title" required />
-        <textarea name="description" placeholder="Description" required></textarea>
-        <input type="number" name="price" placeholder="Price (NZD)" required />
-        <input type="text" name="contact" placeholder="Contact Info" required />
-        <input type="file" name="image" accept="image/*" />
+      <form id="propertyForm">
+        <input type="text" id="title" placeholder="Property Title" required />
+        <input type="text" id="description" placeholder="Description" required />
+        <input type="number" id="price" placeholder="Price (NZD)" required />
+        <input type="text" id="contact" placeholder="Contact Info" required />
+        <input type="file" id="imageInput" accept="image/*" />
         <button type="submit">Submit Listing</button>
       </form>
     </section>
-
     <section>
       <h2>Submitted Listings</h2>
-      <div id="listings"></div>
+      <div id="listingsContainer"></div>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
