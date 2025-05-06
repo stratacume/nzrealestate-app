@@ -104,3 +104,15 @@ form button:hover {
 .button-group button:hover {
   background-color: #aaa;
 }
+.location-tag {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.location-tag .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
