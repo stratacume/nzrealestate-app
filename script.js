@@ -12,12 +12,16 @@ document.getElementById('listingForm').addEventListener('submit', function(e) {
 
   reader.onload = function(event) {
     const newListing = document.createElement('div');
-    newListing.className = 'listing-card';
     newListing.innerHTML = `
-      <h3>${title}</h3>
-      <p>${description}</p>
-      <p><strong>Price:</strong> $${price}</p>
-      <p><strong>Contact:</strong> <a href="tel:${contact}">${contact}</a></p>
+  <h3>${title}</h3>
+  <p>${description}</p>
+  <p><strong>Price:</strong> $${price}</p>
+  <p><strong>Contact:</strong> <a href="tel:${contact}">${contact}</a></p>
+  <div class="location-tag">
+    <img src="location-icon.svg" alt="Location Icon" class="icon">
+    <span>Warkworth</span>
+  </div>
+`;
       <img src="${event.target.result}" alt="Property Image" style="max-width:100%; border-radius: 8px;">
       <div class="button-group">
         <button onclick="editListing(this)">Edit</button>
