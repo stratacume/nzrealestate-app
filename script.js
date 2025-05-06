@@ -83,3 +83,16 @@ document.getElementById('clauseSelect').addEventListener('change', function () {
   const preview = document.getElementById('clausePreview');
   preview.textContent = value ? clauses[value] : '';
 });
+const clauses = {
+  due: "This agreement is conditional upon the Purchaser completing due diligence investigations to their satisfaction within X working days.",
+  finance: "This agreement is conditional upon the Purchaser obtaining suitable finance within X working days.",
+  building: "This agreement is conditional upon the Purchaser obtaining a satisfactory building inspection report within X working days.",
+  cashout: "The Vendor reserves the right to insert a cash out clause. If another offer is received, the Purchaser will have 3 working days to confirm or cancel this agreement.",
+  solicitor: "This agreement is conditional upon the approval of the Purchaser’s solicitor within X working days."
+};
+
+document.getElementById('clauseSelect').addEventListener('change', function () {
+  const value = this.value;
+  const preview = document.getElementById('clausePreview');
+  preview.textContent = value ? clauses[value] : '';
+});
