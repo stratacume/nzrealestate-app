@@ -6,26 +6,28 @@
         <p>Explore homes from $300,000 to $2,000,000 across New Zealand</p>
     </header>
 
-    <section>
+    <section class="main-layout">
+  <div class="left-side">
     <img src="nz_home.jpg" alt="NZ Home" width="100%">
-        
-        
-        <h2>Documents</h2>
-        <ul>
-            <li><a href="NZ_Sale_Purchase_Contract.pdf" target="_blank">Sale & Purchase Agreement (PDF)</a></li>
-            <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
-        </ul>
-    </section>
+  </div>
+  <div class="right-side">
+    <h2>Documents</h2>
+    <ul>
+      <li><a href="NZ_Sale_Purchase_Contract.pdf" target="_blank">Sale & Purchase Agreement (PDF)</a></li>
+      <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
+    </ul>
 
-
-<form id="listingForm">
-  <input type="text" name="title" placeholder="Property Title" required>
-  <textarea name="description" placeholder="Description" required></textarea>
-  <input type="number" name="price" placeholder="Price (NZD)" required>
-  <input type="text" name="contact" placeholder="Contact Info" required>
-  <input type="file" name="image" accept="image/*">
-  <button type="submit">Submit Listing</button>
-</form>
+    <h2>List Your Property</h2>
+    <form id="listingForm">
+      <input type="text" name="title" placeholder="Property Title" required><br>
+      <textarea name="description" placeholder="Description" required></textarea><br>
+      <input type="number" name="price" placeholder="Price (NZD)" required><br>
+      <input type="text" name="contact" placeholder="Contact Info" required><br>
+      <input type="file" name="image" accept="image/*"><br>
+      <button type="submit">Submit Listing</button>
+    </form>
+  </div>
+</section>
 
 <div id="listingsContainer"></div>
 <h3>Submitted Listings</h3>
