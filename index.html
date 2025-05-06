@@ -40,7 +40,17 @@
 
   <input type="submit" value="Submit Listing">
 </form>
+<h2>List Your Property</h2>
+<form id="listingForm">
+  <input type="text" name="title" placeholder="Property Title" required>
+  <textarea name="description" placeholder="Description" required></textarea>
+  <input type="number" name="price" placeholder="Price (NZD)" required>
+  <input type="text" name="contact" placeholder="Contact Info" required>
+  <input type="file" name="image" accept="image/*">
+  <button type="submit">Submit Listing</button>
+</form>
 
+<div id="listingsContainer"></div>
 <h3>Submitted Listings</h3>
 <div id="listings"></div>
 
