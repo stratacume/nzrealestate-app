@@ -1,114 +1,106 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
   background-color: #f4f4f4;
-  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #0078d7;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Hero Section */
-.hero {
+header {
+  position: relative;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 80px 20px;
   background-image: url('nz_home.jpg');
   background-size: cover;
   background-position: center;
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-  position: relative;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
+header h1 {
+  font-size: 3em;
   margin-bottom: 10px;
 }
 
-.hero p {
-  font-size: 1.2rem;
+header p {
+  font-size: 1.2em;
 }
 
-/* Main layout */
-.main-layout {
-  display: flex;
-  flex-wrap: wrap;
+main {
+  max-width: 800px;
+  margin: auto;
   padding: 20px;
-  gap: 20px;
-}
-
-.left-side {
-  flex: 1 1 60%;
-}
-
-.right-side {
-  flex: 1 1 35%;
-  background: #fff;
-  padding: 20px;
+  background: white;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-form input, form textarea, form button {
-  width: 100%;
+h2 {
+  font-size: 1.6em;
+  margin-top: 30px;
   margin-bottom: 10px;
-  padding: 10px;
+}
+
+form input,
+form textarea,
+form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
   font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 form button {
-  background-color: #0078d7;
+  background-color: #0074d9;
   color: white;
   border: none;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 form button:hover {
   background-color: #005fa3;
 }
 
-/* Listings Section */
-#listingsContainer {
+.listing-card {
+  background: white;
   padding: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-left: 5px solid #0074d9;
 }
 
-#listingsContainer h2 {
+.listing-card h3 {
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
-#listings > div {
-  background: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-left: 5px solid #0078d7;
-  border-radius: 4px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+.listing-card p {
+  margin: 5px 0;
 }
 
-#listings img {
+.listing-card img {
   max-width: 100%;
-  border-radius: 4px;
   margin-top: 10px;
+  border-radius: 8px;
+}
+
+.button-group {
+  margin-top: 10px;
+}
+
+.button-group button {
+  background-color: #ccc;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background-color: #aaa;
 }
