@@ -1,16 +1,16 @@
+
 function toggleClause(checkbox) {
   const textarea = document.getElementById(checkbox.value);
   textarea.style.display = checkbox.checked ? "block" : "none";
 }
 
 function generateAgreement() {
-  const clauses = document.querySelectorAll(".clause[type='checkbox']");
+  const clauses = document.querySelectorAll(".clause input[type='checkbox']");
   let agreement = "PRIVATE RESIDENTIAL SALE & PURCHASE AGREEMENT\n\nSELECTED CLAUSES:\n\n";
-
   clauses.forEach(cb => {
     if (cb.checked) {
       const text = document.getElementById(cb.value).value.trim();
-      agreement += `- ${cb.value}:\n${text}\n\n`;
+      agreement += "- " + cb.value + ":\n" + text + "\n\n";
     }
   });
 

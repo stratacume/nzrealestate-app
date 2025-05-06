@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NZ Real Estate</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header style="text-align: center; padding: 20px; background: #f5f5f5;">
+  <header class="hero-banner">
     <h1>NZ Real Estate</h1>
     <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
   </header>
 
-  <section style="padding: 20px;">
-    <h2>DOCUMENTS</h2>
-    <p>Select clauses to include in the agreement. You can edit the text before generating the contract.</p>
+  <main>
+    <section class="card">
+      <h2>DOCUMENTS</h2>
+      <p>Select clauses to include in the agreement. You can edit the text before generating the contract.</p>
+      <form id="clauseForm">
+        <div class="clause">
+          <label><input type="checkbox" value="Finance" onchange="toggleClause(this)"> Finance Clause</label>
+          <textarea id="Finance" class="clause-text" style="display:none;">This agreement is conditional on the buyer obtaining finance on terms suitable to the buyer within 10 working days.</textarea>
+        </div>
+        <div class="clause">
+          <label><input type="checkbox" value="Building" onchange="toggleClause(this)"> Building Inspection Clause</label>
+          <textarea id="Building" class="clause-text" style="display:none;">This agreement is conditional on the buyer obtaining a satisfactory building inspection report within 10 working days.</textarea>
+        </div>
+        <div class="clause">
+          <label><input type="checkbox" value="LIM" onchange="toggleClause(this)"> LIM Clause</label>
+          <textarea id="LIM" class="clause-text" style="display:none;">This agreement is conditional on the buyer being satisfied with a Land Information Memorandum (LIM) from the council within 10 working days.</textarea>
+        </div>
+        <div class="clause">
+          <label><input type="checkbox" value="OIO" onchange="toggleClause(this)"> OIO Consent Clause</label>
+          <textarea id="OIO" class="clause-text" style="display:none;">This agreement is conditional on the buyer receiving consent from the Overseas Investment Office (OIO) if required.</textarea>
+        </div>
+        <div class="clause">
+          <label><input type="checkbox" value="DueDiligence" onchange="toggleClause(this)"> Due Diligence Clause</label>
+          <textarea id="DueDiligence" class="clause-text" style="display:none;">This agreement is conditional on the buyer being satisfied with the results of due diligence investigations within 10 working days.</textarea>
+        </div>
+        <div class="clause">
+          <label><input type="checkbox" value="Solicitor" onchange="toggleClause(this)"> Solicitor’s Approval Clause</label>
+          <textarea id="Solicitor" class="clause-text" style="display:none;">This agreement is conditional on the buyer’s solicitor approving the terms within 5 working days.</textarea>
+        </div>
+        <div class="clause">
+          <label><input type="checkbox" value="CashOut" onchange="toggleClause(this)"> Cash Out Clause</label>
+          <textarea id="CashOut" class="clause-text" style="display:none;">The buyer may cancel this agreement if they receive a more favourable offer and notify the seller within 5 working days.</textarea>
+        </div>
+        <div class="clause">
+          <label><input type="checkbox" value="SubjectToSale" onchange="toggleClause(this)"> Subject to Sale of Another Property</label>
+          <textarea id="SubjectToSale" class="clause-text" style="display:none;">This agreement is conditional upon the sale of the buyer’s current property at 123 Sample St within 20 working days.</textarea>
+        </div>
+        <button type="button" onclick="generateAgreement()">Generate Agreement</button>
+      </form>
+    </section>
 
-    <div id="clauses-section">
-      <label><input type="checkbox" class="clause" value="Finance Clause" onclick="toggleClause(this)"> Finance Clause</label>
-      <textarea id="Finance Clause" class="clause-text" style="display:none;">This agreement is conditional on the buyer obtaining finance on terms suitable to the buyer within 10 working days.</textarea>
-
-      <label><input type="checkbox" class="clause" value="Building Inspection Clause" onclick="toggleClause(this)"> Building Inspection Clause</label>
-      <textarea id="Building Inspection Clause" class="clause-text" style="display:none;">This agreement is conditional upon the buyer obtaining a satisfactory building inspection report within 10 working days.</textarea>
-
-      <label><input type="checkbox" class="clause" value="LIM Clause" onclick="toggleClause(this)"> LIM Clause</label>
-      <textarea id="LIM Clause" class="clause-text" style="display:none;">This agreement is conditional upon the buyer receiving and approving a Land Information Memorandum (LIM) within 10 working days.</textarea>
-
-      <label><input type="checkbox" class="clause" value="OIO Consent Clause" onclick="toggleClause(this)"> OIO Consent Clause</label>
-      <textarea id="OIO Consent Clause" class="clause-text" style="display:none;">This agreement is conditional upon obtaining consent from the Overseas Investment Office.</textarea>
-
-      <label><input type="checkbox" class="clause" value="Due Diligence Clause" onclick="toggleClause(this)"> Due Diligence Clause</label>
-      <textarea id="Due Diligence Clause" class="clause-text" style="display:none;">This agreement is conditional upon the buyer completing all due diligence investigations to their satisfaction within 10 working days.</textarea>
-
-      <label><input type="checkbox" class="clause" value="Solicitor’s Approval Clause" onclick="toggleClause(this)"> Solicitor’s Approval Clause</label>
-      <textarea id="Solicitor’s Approval Clause" class="clause-text" style="display:none;">This agreement is conditional upon the buyer’s solicitor’s approval of the terms and conditions of this agreement.</textarea>
-
-      <label><input type="checkbox" class="clause" value="Cash Out Clause" onclick="toggleClause(this)"> Cash Out Clause</label>
-      <textarea id="Cash Out Clause" class="clause-text" style="display:none;">The vendor reserves the right to cancel this agreement if a better offer is received, provided the buyer does not confirm this agreement within 3 working days of notification.</textarea>
-
-      <label><input type="checkbox" class="clause" value="Subject to Sale of Another Property" onclick="toggleClause(this)"> Subject to Sale of Another Property</label>
-      <textarea id="Subject to Sale of Another Property" class="clause-text" style="display:none;">This agreement is conditional upon the successful sale of the buyer’s property at [insert address] within [insert days] days.</textarea>
-    </div>
-
-    <br>
-    <button onclick="generateAgreement()">Generate Agreement</button>
-
-    <h3>Generated Agreement</h3>
-    <pre id="output" style="background-color:#eef; padding:10px;"></pre>
-  </section>
+    <section class="card">
+      <h2>Generated Agreement</h2>
+      <pre id="output"></pre>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
