@@ -1,61 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NZ Real Estate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NZ Real Estate Agreement</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="banner">
-            <h1>NZ Real Estate</h1>
-            <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
-        </div>
-    </header>
-    <main>
-        <section class="image-banner">
-            <img src="nz_home.jpg" alt="New Zealand Home">
-        </section>
-        <section class="documents">
-            <h2>Documents</h2>
-            <ul>
-                <li><a href="Private_Residential_Sale_Agreement.pdf" target="_blank">Sale & Purchase Agreement (PDF)</a></li>
-                <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
-            </ul>
-        </section>
-        <section class="form-section">
-            <h2>List Your Property</h2>
-            <form id="property-form">
-                <input type="text" name="title" placeholder="Property Title" required><br>
-                <input type="text" name="description" placeholder="Description" required><br>
-                <input type="number" name="price" placeholder="Price (NZD)" required><br>
-                <input type="text" name="contact" placeholder="Contact Info" required><br>
-                <input type="file" name="image"><br>
-                <button type="submit">Submit Listing</button>
-            </form>
-        </section>
-        <section class="submitted-listings">
-            <h2>Submitted Listings</h2>
-            <div id="listings-container"></div>
-        </section>
-        <section class="documents">
-            <h2>DOCUMENTS</h2>
-            <p>Select clauses to include in the agreement. You can edit the text before generating the contract.</p>
-            <form id="clauses-form">
-                <label><input type="checkbox" name="clause" value="Finance Clause"> Finance Clause</label><br>
-                <label><input type="checkbox" name="clause" value="Building Inspection Clause"> Building Inspection Clause</label><br>
-                <label><input type="checkbox" name="clause" value="LIM Clause"> LIM Clause</label><br>
-                <label><input type="checkbox" name="clause" value="OIO Consent Clause"> OIO Consent Clause</label><br>
-                <label><input type="checkbox" name="clause" value="Due Diligence Clause"> Due Diligence Clause</label><br>
-                <label><input type="checkbox" name="clause" value="Solicitor’s Approval Clause"> Solicitor’s Approval Clause</label><br>
-                <label><input type="checkbox" name="clause" value="Cash Out Clause"> Cash Out Clause</label><br>
-                <label><input type="checkbox" name="clause" value="Subject to Sale of Another Property"> Subject to Sale of Another Property</label><br>
-                <button type="button" onclick="generateAgreement()">Generate Agreement</button>
-            </form>
-        </section>
-    </main>
+    <img src="nz_home.jpg" alt="NZ Home" class="banner">
+    <h1>NZ Real Estate Agreement Generator</h1>
+    <form id="agreementForm">
+        <input type="text" placeholder="Buyer Name" id="buyer" required>
+        <input type="text" placeholder="Seller Name" id="seller" required>
+        <input type="text" placeholder="Property Address" id="address" required>
+        <input type="email" placeholder="Buyer Email" id="buyerEmail" required>
+        <input type="email" placeholder="Seller Email" id="sellerEmail" required>
+        <h2>Select Clauses</h2>
+        <label><input type="checkbox" value="Finance Clause"> Finance Clause</label>
+        <label><input type="checkbox" value="Building Inspection Clause"> Building Inspection Clause</label>
+        <label><input type="checkbox" value="LIM Clause"> LIM Clause</label>
+        <label><input type="checkbox" value="Due Diligence Clause"> Due Diligence Clause</label>
+        <button type="submit">Generate and Send</button>
+    </form>
     <script src="script.js"></script>
 </body>
 </html>
