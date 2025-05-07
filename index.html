@@ -1,50 +1,61 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>NZ Real Estate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>NZ Real Estate</h1>
-        <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
-        <img src="nz_home.jpg" alt="New Zealand Home" class="banner-img">
-        <nav>
-            <label for="documents">Documents</label>
-            <select id="documents" onchange="navigateTo(this)">
-                <option value="">-- Choose a Document --</option>
-                <option value="#generate-agreement">Generate Agreement</option>
-                <option value="Private_Residential_Sale_Agreement.pdf">Sale & Purchase Agreement (PDF)</option>
-            </select>
-        </nav>
+        <div class="banner">
+            <h1>NZ Real Estate</h1>
+            <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
+        </div>
     </header>
-
     <main>
-        <section id="generate-agreement">
-            <h2>Generate Agreement</h2>
-            <form id="agreementForm">
-                <label>Buyer Name: <input type="text" name="buyer" required></label><br>
-                <label>Seller Name: <input type="text" name="seller" required></label><br>
-                <label>Property Address: <input type="text" name="address" required></label><br>
-                <label>Email Address: <input type="email" name="email" required></label><br>
-                <fieldset>
-                    <legend>Select Clauses to Include:</legend>
-                    <label><input type="checkbox" name="clauses" value="Finance Clause"> Finance Clause</label><br>
-                    <label><input type="checkbox" name="clauses" value="Building Inspection Clause"> Building Inspection Clause</label><br>
-                    <label><input type="checkbox" name="clauses" value="LIM Clause"> LIM Clause</label><br>
-                    <label><input type="checkbox" name="clauses" value="OIO Consent Clause"> OIO Consent Clause</label><br>
-                    <label><input type="checkbox" name="clauses" value="Due Diligence Clause"> Due Diligence Clause</label><br>
-                    <label><input type="checkbox" name="clauses" value="Solicitor’s Approval Clause"> Solicitor’s Approval Clause</label><br>
-                    <label><input type="checkbox" name="clauses" value="Cash Out Clause"> Cash Out Clause</label><br>
-                    <label><input type="checkbox" name="clauses" value="Subject to Sale of Another Property"> Subject to Sale of Another Property</label>
-                </fieldset>
-                <button type="submit">Generate & Email Agreement</button>
+        <section class="image-banner">
+            <img src="nz_home.jpg" alt="New Zealand Home">
+        </section>
+        <section class="documents">
+            <h2>Documents</h2>
+            <ul>
+                <li><a href="Private_Residential_Sale_Agreement.pdf" target="_blank">Sale & Purchase Agreement (PDF)</a></li>
+                <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
+            </ul>
+        </section>
+        <section class="form-section">
+            <h2>List Your Property</h2>
+            <form id="property-form">
+                <input type="text" name="title" placeholder="Property Title" required><br>
+                <input type="text" name="description" placeholder="Description" required><br>
+                <input type="number" name="price" placeholder="Price (NZD)" required><br>
+                <input type="text" name="contact" placeholder="Contact Info" required><br>
+                <input type="file" name="image"><br>
+                <button type="submit">Submit Listing</button>
             </form>
-            <p id="status"></p>
+        </section>
+        <section class="submitted-listings">
+            <h2>Submitted Listings</h2>
+            <div id="listings-container"></div>
+        </section>
+        <section class="documents">
+            <h2>DOCUMENTS</h2>
+            <p>Select clauses to include in the agreement. You can edit the text before generating the contract.</p>
+            <form id="clauses-form">
+                <label><input type="checkbox" name="clause" value="Finance Clause"> Finance Clause</label><br>
+                <label><input type="checkbox" name="clause" value="Building Inspection Clause"> Building Inspection Clause</label><br>
+                <label><input type="checkbox" name="clause" value="LIM Clause"> LIM Clause</label><br>
+                <label><input type="checkbox" name="clause" value="OIO Consent Clause"> OIO Consent Clause</label><br>
+                <label><input type="checkbox" name="clause" value="Due Diligence Clause"> Due Diligence Clause</label><br>
+                <label><input type="checkbox" name="clause" value="Solicitor’s Approval Clause"> Solicitor’s Approval Clause</label><br>
+                <label><input type="checkbox" name="clause" value="Cash Out Clause"> Cash Out Clause</label><br>
+                <label><input type="checkbox" name="clause" value="Subject to Sale of Another Property"> Subject to Sale of Another Property</label><br>
+                <button type="button" onclick="generateAgreement()">Generate Agreement</button>
+            </form>
         </section>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
