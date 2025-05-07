@@ -1,45 +1,27 @@
-
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
-
-header .banner {
+header {
     background-color: #004080;
     color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.image-banner img {
-    width: 100%;
-    height: auto;
-}
-
-main {
     padding: 20px;
+    text-align: center;
 }
-
-h2 {
-    color: #333;
+.form-section {
+    background: white;
+    padding: 20px;
+    margin: 20px;
 }
-
-form input, form button {
-    margin: 5px 0;
-    padding: 10px;
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
+h2, h3 {
+    color: #004080;
 }
-
-form button {
-    background-color: #007bff;
+button {
+    background-color: #004080;
     color: white;
+    padding: 10px;
     border: none;
     cursor: pointer;
-}
-
-form button:hover {
-    background-color: #0056b3;
 }
