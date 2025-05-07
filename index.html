@@ -9,31 +9,41 @@
     <header>
         <h1>NZ Real Estate</h1>
         <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
+        <img src="nz_home.jpg" alt="New Zealand Home" class="banner-img">
+        <nav>
+            <label for="documents">Documents</label>
+            <select id="documents" onchange="navigateTo(this)">
+                <option value="">-- Choose a Document --</option>
+                <option value="#generate-agreement">Generate Agreement</option>
+                <option value="Private_Residential_Sale_Agreement.pdf">Sale & Purchase Agreement (PDF)</option>
+            </select>
+        </nav>
     </header>
 
-    <section class="form-section">
-        <h2>Documents</h2>
-        <ul>
-            <li><a href="#" onclick="generatePDF()">Sale & Purchase Agreement (PDF)</a></li>
-        </ul>
-
-        <form id="clause-form">
-            <h3>Select clauses to include in the agreement:</h3>
-            <label><input type="checkbox" name="clauses" value="Finance Clause"> Finance Clause</label><br>
-            <label><input type="checkbox" name="clauses" value="Building Inspection Clause"> Building Inspection Clause</label><br>
-            <label><input type="checkbox" name="clauses" value="LIM Clause"> LIM Clause</label><br>
-            <label><input type="checkbox" name="clauses" value="OIO Consent Clause"> OIO Consent Clause</label><br>
-            <label><input type="checkbox" name="clauses" value="Due Diligence Clause"> Due Diligence Clause</label><br>
-            <label><input type="checkbox" name="clauses" value="Solicitor’s Approval Clause"> Solicitor’s Approval Clause</label><br>
-            <label><input type="checkbox" name="clauses" value="Cash Out Clause"> Cash Out Clause</label><br>
-            <label><input type="checkbox" name="clauses" value="Subject to Sale of Another Property"> Subject to Sale of Another Property</label><br>
-            <br>
-            <label>Buyer Name: <input type="text" id="buyerName" required></label><br>
-            <label>Seller Name: <input type="text" id="sellerName" required></label><br>
-            <label>Property Address: <input type="text" id="propertyAddress" required></label><br>
-            <button type="button" onclick="generatePDF()">Generate Agreement</button>
-        </form>
-    </section>
+    <main>
+        <section id="generate-agreement">
+            <h2>Generate Agreement</h2>
+            <form id="agreementForm">
+                <label>Buyer Name: <input type="text" name="buyer" required></label><br>
+                <label>Seller Name: <input type="text" name="seller" required></label><br>
+                <label>Property Address: <input type="text" name="address" required></label><br>
+                <label>Email Address: <input type="email" name="email" required></label><br>
+                <fieldset>
+                    <legend>Select Clauses to Include:</legend>
+                    <label><input type="checkbox" name="clauses" value="Finance Clause"> Finance Clause</label><br>
+                    <label><input type="checkbox" name="clauses" value="Building Inspection Clause"> Building Inspection Clause</label><br>
+                    <label><input type="checkbox" name="clauses" value="LIM Clause"> LIM Clause</label><br>
+                    <label><input type="checkbox" name="clauses" value="OIO Consent Clause"> OIO Consent Clause</label><br>
+                    <label><input type="checkbox" name="clauses" value="Due Diligence Clause"> Due Diligence Clause</label><br>
+                    <label><input type="checkbox" name="clauses" value="Solicitor’s Approval Clause"> Solicitor’s Approval Clause</label><br>
+                    <label><input type="checkbox" name="clauses" value="Cash Out Clause"> Cash Out Clause</label><br>
+                    <label><input type="checkbox" name="clauses" value="Subject to Sale of Another Property"> Subject to Sale of Another Property</label>
+                </fieldset>
+                <button type="submit">Generate & Email Agreement</button>
+            </form>
+            <p id="status"></p>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>

@@ -1,27 +1,26 @@
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: #f7f7f7;
     margin: 0;
     padding: 0;
 }
 header {
-    background-color: #004080;
+    background: #003366;
     color: white;
-    padding: 20px;
     text-align: center;
+    padding: 20px;
 }
-.form-section {
+.banner-img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+main {
+    padding: 20px;
+}
+form {
     background: white;
     padding: 20px;
-    margin: 20px;
-}
-h2, h3 {
-    color: #004080;
-}
-button {
-    background-color: #004080;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+    border-radius: 8px;
 }

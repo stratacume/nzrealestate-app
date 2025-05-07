@@ -1,53 +1,38 @@
-function generatePDF() {
-    const buyerName = document.getElementById("buyerName").value;
-    const sellerName = document.getElementById("sellerName").value;
-    const propertyAddress = document.getElementById("propertyAddress").value;
-    const selectedClauses = Array.from(document.querySelectorAll('input[name="clauses"]:checked'))
-        .map(cb => cb.value).join('\n');
 
-    const agreementText = `
-SALE & PURCHASE AGREEMENT
+document.getElementById('agreementForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const buyer = form.buyer.value;
+    const seller = form.seller.value;
+    const address = form.address.value;
+    const email = form.email.value;
+    const clauses = [...form.clauses].filter(c => c.checked).map(c => c.value);
 
-Buyer: ${buyerName}
-Seller: ${sellerName}
-Property Address: ${propertyAddress}
+    const docContent = `
+        Sale and Purchase Agreement
+        ---------------------------
+        Buyer: ${buyer}
+        Seller: ${seller}
+        Property Address: ${address}
 
-Included Clauses:
-${selectedClauses}
-
-Signed by the parties on this date.
+        Included Clauses:
+        ${clauses.join('\n')}
     `;
 
-    const blob = new Blob([agreementText], { type: "application/pdf" });
-    const link = document.createElement("a");
+    const blob = new Blob([docContent], { type: 'application/pdf' });
+    const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = "Sale_Purchase_Agreement.pdf";
+    link.download = 'NZ_Sale_Agreement.pdf';
     link.click();
-}
-// Email the generated PDF (requires backend or email API service like EmailJS)
-function emailAgreement(pdfBlob, recipientEmail) {
-    const formData = new FormData();
-    formData.append("to", recipientEmail);
-    formData.append("subject", "NZ Real Estate Agreement");
-    formData.append("body", "Please find the attached agreement.");
-    formData.append("attachment", pdfBlob, "agreement.pdf");
 
-    fetch("https://api.emailjs.com/api/v1.0/email/send-form", {
-        method: "POST",
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("Email sent successfully.");
-        } else {
-            alert("Failed to send email.");
-        }
-    })
-    .catch(error => {
-        console.error("Error sending email:", error);
-        alert("An error occurred while sending the email.");
-    });
+    document.getElementById('status').innerText = 'Agreement generated. Email function to be handled by backend.';
+});
+
+function navigateTo(select) {
+    const value = select.value;
+    if (value.startsWith("#")) {
+        location.hash = value;
+    } else if (value) {
+        window.open(value, "_blank");
+    }
 }
