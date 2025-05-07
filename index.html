@@ -1,81 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="hcjWeG2_mDnJ4ZD5TRdjWMbvDCmLfPllAXQUjVeMW8A" />" content="width=device-width, initial-scale=1.0" />
-  <title>NZ Real Estate</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="hcjWeG2_mDnJ4ZD5TRdjWMbvDCmLfP1lAXQUjVeMW8A" />
+    <title>NZ Real Estate</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>NZ Real Estate</h1>
-    <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
-  </header>
-
-  <section class="hero">
-    <img src="nz_home.jpg" alt="New Zealand Home" />
-  </section>
-
-  <section>
-    <h2>Documents</h2>
-    <ul>
-      <li><a href="Private_Residential_Sale_Agreement_NZ.pdf" target="_blank">Sale & Purchase Agreement (PDF)</a></li>
-      <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>List Your Property</h2>
-    <form id="listingForm">
-      <input type="text" placeholder="Property Title" required />
-      <input type="text" placeholder="Description" required />
-      <input type="text" placeholder="Price (NZD)" required />
-      <input type="text" placeholder="Contact Info" required />
-      <input type="text" placeholder="Location" required />
-      <input type="file" accept="image/*" multiple />
-      <button type="submit">Submit Listing</button>
-    </form>
-  </section>
-
-  <section>
-    <h2>Submitted Listings</h2>
-    <div id="listings"></div>
-  </section>
-
-  <section>
-    <h2>DOCUMENTS</h2>
-    <p>Select clauses to include in the agreement. You can edit the text before generating the contract.</p>
-    <form id="clausesForm">
-      <div class="checkboxes">
-        <label><input type="checkbox" value="Finance Clause" class="clause" onchange="toggleClause(this)"> Finance Clause</label>
-        <textarea id="Finance Clause" class="clause-textarea" style="display:none;">This agreement is conditional upon the purchaser obtaining finance...</textarea>
-
-        <label><input type="checkbox" value="Building Inspection Clause" class="clause" onchange="toggleClause(this)"> Building Inspection Clause</label>
-        <textarea id="Building Inspection Clause" class="clause-textarea" style="display:none;">This agreement is conditional upon the purchaser obtaining a satisfactory building inspection...</textarea>
-
-        <label><input type="checkbox" value="LIM Clause" class="clause" onchange="toggleClause(this)"> LIM Clause</label>
-        <textarea id="LIM Clause" class="clause-textarea" style="display:none;">This agreement is conditional upon the purchaser being satisfied with a LIM report...</textarea>
-
-        <label><input type="checkbox" value="OIO Consent Clause" class="clause" onchange="toggleClause(this)"> OIO Consent Clause</label>
-        <textarea id="OIO Consent Clause" class="clause-textarea" style="display:none;">This agreement is conditional upon OIO consent being obtained...</textarea>
-
-        <label><input type="checkbox" value="Due Diligence Clause" class="clause" onchange="toggleClause(this)"> Due Diligence Clause</label>
-        <textarea id="Due Diligence Clause" class="clause-textarea" style="display:none;">This agreement is subject to the purchaser undertaking due diligence investigations...</textarea>
-
-        <label><input type="checkbox" value="Solicitor’s Approval Clause" class="clause" onchange="toggleClause(this)"> Solicitor’s Approval Clause</label>
-        <textarea id="Solicitor’s Approval Clause" class="clause-textarea" style="display:none;">This agreement is subject to the approval of the purchaser's solicitor...</textarea>
-
-        <label><input type="checkbox" value="Cash Out Clause" class="clause" onchange="toggleClause(this)"> Cash Out Clause</label>
-        <textarea id="Cash Out Clause" class="clause-textarea" style="display:none;">The vendor reserves the right to activate a cash out clause...</textarea>
-
-        <label><input type="checkbox" value="Subject to Sale of Another Property" class="clause" onchange="toggleClause(this)"> Subject to Sale of Another Property</label>
-        <textarea id="Subject to Sale of Another Property" class="clause-textarea" style="display:none;">This agreement is conditional upon the successful sale of the purchaser's existing property...</textarea>
-      </div>
-      <button type="button" onclick="generateAgreement()">Generate Agreement</button>
-    </form>
-    <pre id="output"></pre>
-  </section>
-
-  <script src="script.js"></script>
+    <header>
+        <h1>NZ Real Estate</h1>
+        <p>Buy or sell your property directly. Fast. Fair. Simple.</p>
+    </header>
+    <section class="hero">
+        <img src="nz_home.jpg" alt="New Zealand Home" />
+    </section>
+    <section>
+        <h2>Documents</h2>
+        <ul>
+            <li><a href="Private_Residential_Sale_Agreement_NZ.pdf">Sale & Purchase Agreement (PDF)</a></li>
+            <li><a href="standard_clauses.txt" target="_blank">Standard Clauses</a></li>
+        </ul>
+    </section>
 </body>
 </html>
