@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NZRealEstate.App - Private NZ Property Sale</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NZRealEstate.App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
   <header>
-    <img src="nz_home.jpg" alt="NZ Home" />
+    <img src="header_image.jpg" alt="Header Image" />
     <h1>NZRealEstate.App</h1>
-    <p>Sell or Buy Homes Privately Across New Zealand</p>
+    <p>List, Sell & Settle Property Privately Across New Zealand</p>
   </header>
   <main>
     <section class="form-section">
@@ -32,6 +33,7 @@
           <label><input type="checkbox" value="Solicitor's Approval Clause" /> Solicitor's Approval Clause</label>
         </div>
         <button type="submit">Generate Agreement</button>
+        <button type="button" id="downloadPdf">Download PDF</button>
       </form>
     </section>
 
@@ -40,35 +42,34 @@
       <pre id="agreementPreview">(Fill out the form to generate an agreement)</pre>
     </section>
 
-    <section class="document-section">
-      <h2>Documents</h2>
-      <a href="Private_Residential_Sale_Agreement_NZ.pdf" class="download-link" download>
-        Download Full NZ Sale & Purchase Agreement (PDF)
-      </a>
+    <section class="listing-upload">
+      <h2>Add New Listing</h2>
+      <input type="file" id="listingImage" accept="image/*" />
+      <input type="text" id="listingTitle" placeholder="Listing Title" />
+      <textarea id="listingDesc" placeholder="Listing Description"></textarea>
+      <button id="addListing">Add Listing</button>
     </section>
 
     <section class="listing-section">
       <h2>Live Listings</h2>
-      <div class="listing">
-        <img src="nz_home.jpg" alt="Listing 1">
-        <h3>123 Karaka Street, Wellsford</h3>
-        <p>3-bedroom family home with sunny backyard. Price: $675,000</p>
-      </div>
-      <div class="listing">
-        <img src="nz_home.jpg" alt="Listing 2">
-        <h3>45 Kauri Grove, Warkworth</h3>
-        <p>Modern 2-bed home near schools. Price: $529,000</p>
-      </div>
-      <div class="listing">
-        <img src="nz_home.jpg" alt="Listing 3">
-        <h3>19 Prictor Road, Wellsford</h3>
-        <p>400m² section, zoned Mixed Housing Suburban. Price: $395,000</p>
+      <div id="listingContainer">
+        <div class="listing">
+          <img src="nz_home.jpg" alt="Listing 1">
+          <h3>123 Karaka Street, Wellsford</h3>
+          <p>3-bedroom family home with sunny backyard. Price: $675,000</p>
+        </div>
       </div>
     </section>
   </main>
   <script>
+    const { jsPDF } = window.jspdf;
+
     document.getElementById('agreementForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      generateAgreement();
+    });
+
+    function generateAgreement() {
       const buyer = document.getElementById('buyer').value;
       const seller = document.getElementById('seller').value;
       const address = document.getElementById('address').value;
@@ -90,6 +91,35 @@ Buyer Signature: ________________________
 Seller Signature: ________________________
 `;
       document.getElementById('agreementPreview').textContent = output;
+      return output;
+    }
+
+    document.getElementById("downloadPdf").addEventListener("click", function() {
+      const doc = new jsPDF();
+      doc.setFontSize(20);
+      doc.text("NZRealEstate.App Agreement", 20, 20);
+      doc.setFontSize(12);
+      const agreementText = generateAgreement();
+      doc.text(agreementText, 20, 40);
+      doc.save("NZ_Agreement.pdf");
+    });
+
+    document.getElementById('addListing').addEventListener('click', () => {
+      const imgInput = document.getElementById('listingImage');
+      const title = document.getElementById('listingTitle').value;
+      const desc = document.getElementById('listingDesc').value;
+      const container = document.getElementById('listingContainer');
+
+      if (imgInput.files && imgInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const div = document.createElement('div');
+          div.className = 'listing';
+          div.innerHTML = \`<img src="\${e.target.result}" /><h3>\${title}</h3><p>\${desc}</p>\`;
+          container.appendChild(div);
+        };
+        reader.readAsDataURL(imgInput.files[0]);
+      }
     });
   </script>
 </body>
