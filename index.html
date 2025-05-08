@@ -1,26 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>NZ Real Estate Agreement</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NZRealEstate.App - Private NZ Property Sale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <img src="nz_home.jpg" alt="NZ Home" class="banner">
-    <h1>NZ Real Estate Agreement Generator</h1>
-    <form id="agreementForm">
-        <input type="text" placeholder="Buyer Name" id="buyer" required>
-        <input type="text" placeholder="Seller Name" id="seller" required>
-        <input type="text" placeholder="Property Address" id="address" required>
-        <input type="email" placeholder="Buyer Email" id="buyerEmail" required>
-        <input type="email" placeholder="Seller Email" id="sellerEmail" required>
-        <h2>Select Clauses</h2>
-        <label><input type="checkbox" value="Finance Clause"> Finance Clause</label>
-        <label><input type="checkbox" value="Building Inspection Clause"> Building Inspection Clause</label>
-        <label><input type="checkbox" value="LIM Clause"> LIM Clause</label>
-        <label><input type="checkbox" value="Due Diligence Clause"> Due Diligence Clause</label>
-        <button type="submit">Generate and Send</button>
-    </form>
-    <script src="script.js"></script>
+  <header>
+    <img src="nz_home.jpg" alt="NZ Home" />
+    <h1>NZRealEstate.App</h1>
+    <p>Sell or Buy Homes Privately Across New Zealand</p>
+  </header>
+  <main>
+    <section class="form-section">
+      <h2>Create Agreement</h2>
+      <form id="agreementForm">
+        <input type="text" id="buyer" placeholder="Buyer Name" required />
+        <input type="text" id="seller" placeholder="Seller Name" required />
+        <input type="text" id="address" placeholder="Property Address" required />
+        <input type="email" id="buyerEmail" placeholder="Buyer Email" required />
+        <input type="email" id="sellerEmail" placeholder="Seller Email" required />
+        <div class="clause-section">
+          <h3>Clauses to Include</h3>
+          <label><input type="checkbox" value="Finance Clause" /> Finance Clause</label>
+          <label><input type="checkbox" value="Building Inspection Clause" /> Building Inspection Clause</label>
+          <label><input type="checkbox" value="LIM Clause" /> LIM Clause</label>
+          <label><input type="checkbox" value="Due Diligence Clause" /> Due Diligence Clause</label>
+          <label><input type="checkbox" value="OIO Consent Clause" /> OIO Consent Clause</label>
+          <label><input type="checkbox" value="Solicitor's Approval Clause" /> Solicitor's Approval Clause</label>
+        </div>
+        <button type="submit">Generate Agreement</button>
+      </form>
+    </section>
+
+    <section class="agreement-output">
+      <h2>Agreement Preview</h2>
+      <pre id="agreementPreview">(Fill out the form to generate an agreement)</pre>
+    </section>
+
+    <section class="document-section">
+      <h2>Documents</h2>
+      <a href="Private_Residential_Sale_Agreement_NZ.pdf" class="download-link" download>
+        Download Full NZ Sale & Purchase Agreement (PDF)
+      </a>
+    </section>
+
+    <section class="listing-section">
+      <h2>Live Listings</h2>
+      <div class="listing">
+        <img src="nz_home.jpg" alt="Listing 1">
+        <h3>123 Karaka Street, Wellsford</h3>
+        <p>3-bedroom family home with sunny backyard. Price: $675,000</p>
+      </div>
+      <div class="listing">
+        <img src="nz_home.jpg" alt="Listing 2">
+        <h3>45 Kauri Grove, Warkworth</h3>
+        <p>Modern 2-bed home near schools. Price: $529,000</p>
+      </div>
+      <div class="listing">
+        <img src="nz_home.jpg" alt="Listing 3">
+        <h3>19 Prictor Road, Wellsford</h3>
+        <p>400m² section, zoned Mixed Housing Suburban. Price: $395,000</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.getElementById('agreementForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const buyer = document.getElementById('buyer').value;
+      const seller = document.getElementById('seller').value;
+      const address = document.getElementById('address').value;
+      const clauses = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(c => "- " + c.value).join("\n");
+
+      const output = `
+NZ SALE & PURCHASE AGREEMENT
+-----------------------------
+Buyer: ${buyer}
+Seller: ${seller}
+Property Address: ${address}
+
+Included Clauses:
+${clauses}
+
+SIGNED:
+Buyer Signature: ________________________
+Seller Signature: ________________________
+`;
+      document.getElementById('agreementPreview').textContent = output;
+    });
+  </script>
 </body>
 </html>
