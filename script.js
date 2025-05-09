@@ -1,5 +1,5 @@
-const supabaseUrl = 'https://your-project.supabase.co';
-const supabaseKey = 'your-anon-key';
+const supabaseUrl = 'https://gwht...supabase.co'; // full URL from Supabase
+const supabaseKey = 'eyJhbGciOiJI...'; // full anon/public API key from Supabase
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 async function signup() {
