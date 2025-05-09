@@ -1,23 +1,22 @@
+const supabaseUrl = 'https://your-project.supabase.co';
+const supabaseKey = 'your-anon-key';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-document.getElementById('agreementForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const buyer = document.getElementById('buyer').value;
-    const seller = document.getElementById('seller').value;
-    const address = document.getElementById('address').value;
-    const buyerEmail = document.getElementById('buyerEmail').value;
-    const sellerEmail = document.getElementById('sellerEmail').value;
+async function signup() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  let { error } = await supabase.auth.signUp({ email, password });
+  if (error) alert(error.message); else alert("Signup successful.");
+}
 
-    const selectedClauses = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-        .map(c => c.value).join("\n");
+async function login() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  let { error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) alert(error.message); else alert("Login successful.");
+}
 
-    const agreementText = `
-        BUYER: ${buyer}
-        SELLER: ${seller}
-        ADDRESS: ${address}
-        CLAUSES:
-        ${selectedClauses}
-    `;
-
-    console.log("Agreement Generated:\n" + agreementText);
-    alert("Agreement generated. You can now email it manually.");
-});
+async function logout() {
+  let { error } = await supabase.auth.signOut();
+  if (error) alert(error.message); else alert("Logged out.");
+}
