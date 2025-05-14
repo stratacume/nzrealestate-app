@@ -1,5 +1,5 @@
-const supabaseUrl = 'https://gwht...supabase.co'; // full URL from Supabase
-const supabaseKey = 'eyJhbGciOiJI...'; // full anon/public API key from Supabase
+const supabaseUrl = 'https://gwht...supabase.co';
+const supabaseKey = 'eyJhbGciOiJI...'; // real key should be inserted
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 async function signup() {

@@ -1,11 +1,8 @@
-
-body { font-family: 'Inter', sans-serif; background: #f2f2f2; margin: 0; padding: 0; }
-header { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-header img { max-height: 200px; border-radius: 10px; }
-main { max-width: 1100px; margin: auto; padding: 20px; background: white; }
-input, button, textarea { width: 100%; margin-top: 10px; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px; }
-button { background: #0070f3; color: white; border: none; font-weight: bold; cursor: pointer; margin-bottom: 10px; }
-.listing { border: 1px solid #ddd; padding: 10px; margin-top: 20px; border-radius: 10px; }
-.listing img { width: 100%; border-radius: 6px; margin-bottom: 10px; }
-.download-link { display: block; color: #0070f3; margin-top: 10px; }
-.agreement-output pre { background: #f4f4f4; padding: 15px; border-radius: 6px; font-size: 15px; white-space: pre-wrap; }
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+input {
+  margin: 5px;
+}

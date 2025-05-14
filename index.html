@@ -4,41 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NZRealEstate.App</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>NZRealEstate.App</h1>
   <p>List, Sell & Settle Property Privately Across New Zealand</p>
-
   <section>
     <h2>Account</h2>
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
     <button onclick="signup()">Sign Up</button>
     <button onclick="login()">Log In</button>
     <button onclick="logout()">Log Out</button>
   </section>
-
-  <section>
-    <h2>Create Agreement</h2>
-    <form id="agreementForm">
-      <input type="text" id="buyer" placeholder="Buyer Name" required />
-      <input type="text" id="seller" placeholder="Seller Name" required />
-      <input type="text" id="address" placeholder="Property Address" required />
-      <input type="email" id="buyerEmail" placeholder="Buyer Email" required />
-      <input type="email" id="sellerEmail" placeholder="Seller Email" required />
-      
-      <label><input type="checkbox" class="clause" value="Finance Clause" /> Finance Clause</label><br />
-      <label><input type="checkbox" class="clause" value="Building Inspection Clause" /> Building Inspection Clause</label><br />
-      <label><input type="checkbox" class="clause" value="LIM Clause" /> LIM Clause</label><br />
-      <label><input type="checkbox" class="clause" value="Due Diligence Clause" /> Due Diligence Clause</label><br />
-      <label><input type="checkbox" class="clause" value="OIO Consent Clause" /> OIO Consent Clause</label><br />
-      <label><input type="checkbox" class="clause" value="Solicitor's Approval Clause" /> Solicitor's Approval Clause</label><br />
-
-      <button type="submit">Generate Agreement</button>
-    </form>
-    <pre id="agreementPreview">(Fill out the form to generate an agreement)</pre>
-  </section>
-
   <script src="script.js"></script>
 </body>
 </html>
