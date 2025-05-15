@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NZ Real Estate App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>NZ Real Estate</h1>
+    <p>List. Sell. Settle.</p>
+  </header>
+  <main>
+    <section id="listings">
+      <h2>Live Listings</h2>
+      <div id="listing-container"></div>
+    </section>
+    <section id="form">
+      <h2>Create Listing</h2>
+      <input type="text" id="title" placeholder="Title" />
+      <input type="text" id="price" placeholder="Price" />
+      <input type="text" id="location" placeholder="Location" />
+      <input type="file" id="image" />
+      <button onclick="submitListing()">Submit</button>
+    </section>
+    <section id="agreement">
+      <h2>Sale & Purchase Agreement</h2>
+      <input type="text" id="buyer" placeholder="Buyer Name" />
+      <input type="text" id="seller" placeholder="Seller Name" />
+      <textarea id="clauses">Finance Clause
+Building Clause
+LIM Report
+</textarea>
+      <button onclick="generatePDF()">Generate PDF</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
