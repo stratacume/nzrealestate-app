@@ -1,23 +1,23 @@
 
-const supabaseUrl = 'https://gwht...supabase.co';
-const supabaseKey = 'eyJhbGc...'; // your real anon key
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-async function signup() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  let { error } = await supabase.auth.signUp({ email, password });
-  if (error) alert(error.message); else alert("Signup successful.");
+function submitListing() {
+  const title = document.getElementById('title').value;
+  const price = document.getElementById('price').value;
+  const location = document.getElementById('location').value;
+  const image = document.getElementById('image').files[0];
+  alert(`Submitted: ${title} - ${price} - ${location} - ${image.name}`);
 }
 
-async function login() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  let { error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) alert(error.message); else alert("Login successful.");
-}
-
-async function logout() {
-  let { error } = await supabase.auth.signOut();
-  if (error) alert(error.message); else alert("Logged out.");
+function generatePDF() {
+  const buyer = document.getElementById('buyer').value;
+  const seller = document.getElementById('seller').value;
+  const clauses = document.getElementById('clauses').value;
+  const blob = new Blob([`Agreement
+Buyer: ${buyer}
+Seller: ${seller}
+Clauses:
+${clauses}`], {type: 'application/pdf'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'agreement.pdf';
+  link.click();
 }

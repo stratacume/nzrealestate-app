@@ -13,34 +13,27 @@
     <p>List. Sell. Settle.</p>
   </header>
   <main>
-    <section id="account">
-      <h2>Account</h2>
-      <input type="email" id="email" placeholder="Email" />
-      <input type="password" id="password" placeholder="Password" />
-      <button onclick="signup()">Sign Up</button>
-      <button onclick="login()">Log In</button>
-      <button onclick="logout()">Log Out</button>
-    </section>
-
-    <section id="create-agreement">
-      <h2>Create Agreement</h2>
-      <input type="text" placeholder="Buyer Name" />
-      <input type="text" placeholder="Seller Name" />
-      <input type="text" placeholder="Property Address" />
-      <input type="email" placeholder="Buyer Email" />
-      <input type="email" placeholder="Seller Email" />
-      <label><input type="checkbox" /> Finance Clause</label>
-      <label><input type="checkbox" /> Building Inspection Clause</label>
-      <label><input type="checkbox" /> LIM Clause</label>
-      <label><input type="checkbox" /> Due Diligence Clause</label>
-      <label><input type="checkbox" /> OIO Consent Clause</label>
-      <label><input type="checkbox" /> Solicitor's Approval Clause</label>
-      <button>Generate Agreement</button>
-    </section>
-
     <section id="listings">
       <h2>Live Listings</h2>
-      <!-- Listings would go here -->
+      <div id="listing-container"></div>
+    </section>
+    <section id="form">
+      <h2>Create Listing</h2>
+      <input type="text" id="title" placeholder="Title" />
+      <input type="text" id="price" placeholder="Price" />
+      <input type="text" id="location" placeholder="Location" />
+      <input type="file" id="image" />
+      <button onclick="submitListing()">Submit</button>
+    </section>
+    <section id="agreement">
+      <h2>Sale & Purchase Agreement</h2>
+      <input type="text" id="buyer" placeholder="Buyer Name" />
+      <input type="text" id="seller" placeholder="Seller Name" />
+      <textarea id="clauses">Finance Clause
+Building Clause
+LIM Report
+</textarea>
+      <button onclick="generatePDF()">Generate PDF</button>
     </section>
   </main>
   <script src="script.js"></script>
