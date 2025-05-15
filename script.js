@@ -1,5 +1,6 @@
+
 const supabaseUrl = 'https://gwht...supabase.co';
-const supabaseKey = 'eyJhbGciOiJI...'; // real key should be inserted
+const supabaseKey = 'eyJhbGc...'; // your real anon key
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 async function signup() {

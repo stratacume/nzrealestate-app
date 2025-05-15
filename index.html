@@ -1,22 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NZRealEstate.App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NZ Real Estate App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>NZRealEstate.App</h1>
-  <p>List, Sell & Settle Property Privately Across New Zealand</p>
-  <section>
-    <h2>Account</h2>
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="signup()">Sign Up</button>
-    <button onclick="login()">Log In</button>
-    <button onclick="logout()">Log Out</button>
-  </section>
+  <header>
+    <h1>NZ Real Estate</h1>
+    <p>List. Sell. Settle.</p>
+  </header>
+  <main>
+    <section id="account">
+      <h2>Account</h2>
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="signup()">Sign Up</button>
+      <button onclick="login()">Log In</button>
+      <button onclick="logout()">Log Out</button>
+    </section>
+
+    <section id="create-agreement">
+      <h2>Create Agreement</h2>
+      <input type="text" placeholder="Buyer Name" />
+      <input type="text" placeholder="Seller Name" />
+      <input type="text" placeholder="Property Address" />
+      <input type="email" placeholder="Buyer Email" />
+      <input type="email" placeholder="Seller Email" />
+      <label><input type="checkbox" /> Finance Clause</label>
+      <label><input type="checkbox" /> Building Inspection Clause</label>
+      <label><input type="checkbox" /> LIM Clause</label>
+      <label><input type="checkbox" /> Due Diligence Clause</label>
+      <label><input type="checkbox" /> OIO Consent Clause</label>
+      <label><input type="checkbox" /> Solicitor's Approval Clause</label>
+      <button>Generate Agreement</button>
+    </section>
+
+    <section id="listings">
+      <h2>Live Listings</h2>
+      <!-- Listings would go here -->
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
